@@ -1,4 +1,6 @@
-public class SimpleCalculator {
+// every class extends the Object class automatically
+// and inherit its methods
+public class SimpleCalculator extends Object {
     private double firstNumber;
     private double secondNumber;
 
