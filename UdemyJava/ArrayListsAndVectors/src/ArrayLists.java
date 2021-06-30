@@ -3,6 +3,9 @@ import java.util.Arrays;
 
 public class ArrayLists {
 
+    // ArrayLists are arrays that have a dynamic size (it is controlled by Java, you do not need to specify the size)
+
+
     public static void main(String[] args) {
         // create array list
         ArrayList<String> myList = new ArrayList<>();

@@ -1,7 +1,7 @@
-package playlistchallenge;
+package playlistchallengerevisited;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.List;
 
 public class Album {
     private String name;
@@ -24,17 +24,6 @@ public class Album {
         return null;
     }
 
-    private Song findSong(int trackNumber) {
-        int trackIndex = trackNumber - 1;
-        int maxIndex = songs.size() - 1;
-
-        if (trackIndex > maxIndex || trackIndex < 0) {
-            return null;
-        }
-
-        return songs.get(trackIndex);
-    }
-
     public boolean addSong(String songTitle, double duration) {
         if (findSong(songTitle) != null) {
             return false;
@@ -44,18 +33,20 @@ public class Album {
         return true;
     }
 
-    public boolean addToPlayList(int trackNumber, LinkedList<Song> playlist) {
-        Song song = findSong(trackNumber);
+    // here I can say the playlist is of the interface 'List' and it still works
+    public boolean addToPlayList(int trackNumber, List<Song> playlist) {
+        int trackIndex = trackNumber - 1;
+        int maxIndex = songs.size() - 1;
 
-        if (song == null) {
+        if (trackIndex > maxIndex || trackIndex < 0) {
             return false;
         }
 
-        playlist.add(song);
+        playlist.add(songs.get(trackIndex));
         return true;
     }
 
-    public boolean addToPlayList(String songTitle, LinkedList<Song> playlist) {
+    public boolean addToPlayList(String songTitle, List<Song> playlist) {
         Song song = findSong(songTitle);
 
         if (song == null) {

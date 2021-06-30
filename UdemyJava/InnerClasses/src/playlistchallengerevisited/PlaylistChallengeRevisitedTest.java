@@ -1,9 +1,9 @@
-package playlistchallenge;
+package playlistchallengerevisited;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Test {
+public class PlaylistChallengeRevisitedTest {
     public static void main(String[] args) {
         ArrayList<Album> albums = new ArrayList<>();
 

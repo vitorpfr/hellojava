@@ -8,4 +8,6 @@ https://www.udemy.com/course/java-the-complete-java-developer-course/
 - Mobile phone challenge: ArrayLists/mobilephonechallenge
 - Banking challenge: AutoboxingAndUnboxing/bankingchallenge
 - Playlist challenge: LinkedLists/playlistchallenge
-
+- Playlist challenge revisited (with inner classes): InnerClasses/playlistchallengerevisited
+- LinkedList playground (my implementation of a linked list): AbstractClasses/linkedlistplayground
+- SearchTree challenge: AbstractClasses/abstractclasseschallenge
