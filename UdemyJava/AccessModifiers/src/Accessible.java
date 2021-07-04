@@ -5,8 +5,8 @@
 // since the interface itself is package-private, the methods will naturally only be accessed in the package
 
 
-interface Accessible {
-    int SOME_CONSTANT = 100;
+interface Accessible { // package-private
+    int SOME_CONSTANT = 100; // all public
     public void methodA();
     void methodB();
     boolean methodC();
