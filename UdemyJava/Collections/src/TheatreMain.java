@@ -5,79 +5,73 @@ import java.util.List;
 public class TheatreMain {
     public static void main(String[] args) {
         Theatre theatre = new Theatre("Olympian", 8, 12);
+
+        // prints all seats from A01 to H12
 //        theatre.getSeats();
 
-        // first time: reserves the seat
-        if (theatre.reserveSeat("H11")) {
-            System.out.println("Please pay");
-        } else {
-            System.out.println("Sorry, seat is taken");
-        }
+        System.out.println("RESERVATION: BRUTE-FORCE (TRAVERSE LIST) VS BINARY SEARCH");
 
-        // second time: seat is already taken
-        if (theatre.reserveSeat("H11")) {
-            System.out.println("Please pay");
-        } else {
-            System.out.println("Sorry, seat is taken");
-        }
+        // testing reservation - brute force way
+        theatre.inefficientReserveSeat("H12"); // should reserve successfully
+        theatre.inefficientReserveSeat("H12"); // seat is already reserved
+        theatre.inefficientReserveSeat("H15"); // seat doesn't exist
 
-        // now trying to reserve seat with different types of collections
-        // ArrayList with brute force for loop: passes through all elements, very inefficient - kind of a brute force
-        // ArrayList with binary search: much more efficient, but it needs the Class inside it (Seat in this case) to implement Comparable
+        // Collections class provides a binary search method, but item inside coll must implement Comparable
+        // THIS ONLY WORKS AS-IS BECAUSE THE SEATS ARE CREATED ALREADY SORTED! IF NOT, SORTING BEFORE IS NECESSARY
+        theatre.reserveSeat("H12"); // should reserve successfully
+        theatre.reserveSeat("H12"); // seat is already reserved
+        theatre.reserveSeat("H15"); // seat doesn't exist
 
-        // everything below here doesn't work because Seat and seats are not public anymore
-        List<Theatre.Seat> seatCopy = new ArrayList<>(theatre.getSeats());
+
+        System.out.println("---------------------------------------");
+        System.out.println("COLLECTIONS LIST METHODS");
+
+        // min and max: returns min and max elements according to sort order (using compareTo method)
+        System.out.println("min seat number is " + Collections.min(theatre.seats).getSeatNumber());
+        System.out.println("max seat number is " + Collections.max(theatre.seats).getSeatNumber());
+
+        // shallow copy (using constructor) - new list, but contents are the same objects (seats)
+        // if we reserve a seat in one list, it will be reserved in the other list as well
+        List<Theatre.Seat> seatCopy = new ArrayList<>(theatre.seats);
         printList(seatCopy);
-
-        // copying the ArrayList with the constructor makes a shallow copy
-        // I reserve one seat, seatCopy will also be changed (arrayLists have address of same Seat objects)
-        seatCopy.get(1).reserve();
-
-        // this prints "Seat already reserved" because it was already done done in the array copy
-        if (theatre.reserveSeat("A02")) {
-            System.out.println("Please pay for A02");
-        } else {
-            System.out.println("Seat already reserved");
-        }
-
-        // if I reverse one of the, the other is not reversed!
-        // this proves that seatCopy and theatre.seats are separate ArrayLists, but they contain references to the same Seat objects
-        Collections.shuffle(seatCopy); // or Collections.reverse
-        System.out.println("Printing seatCopy");
+        System.out.println();
+        seatCopy.get(1).reserve(); // reserved successfully
+        theatre.reserveSeat("A02"); // already reserved!
+        // to prove that they are separate lists, if we reverse one, other is not affected
+        System.out.println("printing seatCopy, then original seats, after reversing seatCopy");
+        Collections.reverse(seatCopy);
         printList(seatCopy);
-        System.out.println("Printing theatre.seats");
-//        printList(theatre.getSeats());
+        printList(theatre.seats);
 
-        // Collections methods to get min and max element of a collection (element class needs to have Comparable interface implemented)
-        // it iterates through entire collection: O(n)
-        Theatre.Seat minSeat = Collections.min(seatCopy);
-        Theatre.Seat maxSeat = Collections.max(seatCopy);
-        System.out.println("Min seat number is " + minSeat.getSeatNumber() + " and max seat number is " + maxSeat.getSeatNumber());
-
+        Collections.shuffle(seatCopy);
         sortList(seatCopy);
-        System.out.println("Printing sorted seatCopy");
+        System.out.println("Priting sorted seatCopy");
         printList(seatCopy);
 
-        List<Theatre.Seat> newList = new ArrayList<>(theatre.getSeats().size());
-//        Collections.copy(newList, theatre.seats); // doesn't work because it needs an initialized list with elements alerady there, and new ArrayList hasn't done it yet
-        // in summary, Collections.copy is not very useful to create a deep copy of an existing list
-        // ref: https://stackoverflow.com/questions/1330288/how-to-make-a-separated-copy-of-an-arraylist
+        // Collections.copy requires the list to be initialized before
+
+        // if I want to sort a collection by other field (e.g. price) I can instantiate a Comparator class and pass it to the sort method
+        // Theatre.PRICE_ORDER here is a static field that instantiates a Comparator<Seat>, and returns 1, 0 and -1 according to price comparison
+//        Collections.sort(seatCopy, Theatre.PRICE_ORDER);
+
+        // important: the comparator must sort until it is consistent with equals
+        // which means it will only return 0 if the seats are actually the same (so, to be right, if price is equal, it should check seat number)
     }
 
     public static void printList(List<Theatre.Seat> list) {
-        for(Theatre.Seat seat : list) {
+        for (Theatre.Seat seat : list) {
             System.out.print(" " + seat.getSeatNumber());
         }
         System.out.println();
-        System.out.println("-------------------------------------------");
+        System.out.println("==========================================================");
     }
 
-    // this is a variation of bubble sort, which swaps close elements
-    // not as efficient as the built-in merge sort, but uses less memory, so it may useful when memory is a concern
+    // variation of bubble sort method
+    // slower than merge sort, but uses less memory
     public static void sortList(List<? extends Theatre.Seat> list) {
-        for (int i = 0; i < (list.size() - 1); i++) {
-            for (int j = (i + 1); j < list.size(); j++) {
-                if(list.get(i).compareTo(list.get(j)) > 0) {
+        for (int i = 0; i < list.size() - 1; i++) {
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i).compareTo(list.get(j)) > 0) {
                     Collections.swap(list, i, j);
                 }
             }

@@ -1,3 +1,5 @@
+package collectionsbackup1;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,7 +23,7 @@ public class TheatreMain2 {
         // this is a new array, but references the same Seat objects as the original one
         List<Theatre.Seat> reverseSeats = new ArrayList<>(theatre.getSeats());
 
-        // reminder: this only works because Theatre.Seat implements Comparable interface
+        // reminder: this only works because collectionsbackup1.Theatre.Seat implements Comparable interface
         Collections.reverse(reverseSeats);
         printList(reverseSeats);
 

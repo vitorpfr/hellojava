@@ -2,55 +2,19 @@ import java.util.*;
 
 public class Theatre {
     private final String theatreName;
-
-    // List<Seat> is already generic (ArrayList, LinkedList, all of them work)
-    // but we could make it even more generic by using Collection<Seat> (Collection interface is above List interface)
-    // https://docs.oracle.com/javase/tutorial/collections/interfaces/index.html
-
-    private List<Seat> seats = new ArrayList<>(); // ArrayList, LinkedList, HashSet, LinkedHashSet, etc...
-
-    // two ways of sort/reverse lists:
-    // 1. implement Comparable in the Class inside the list
-    // 2. implement a Comparator<Seat> anonymous inner class and use it (the class is defined and instantiated at the same time)
-    static final Comparator<Seat> PRICE_ORDER;
-    static {
-        PRICE_ORDER = new Comparator<Seat>() {
-            @Override
-            public int compare(Seat seat1, Seat seat2) {
-                return Double.compare(seat1.getPrice(), seat2.getPrice());
-            }
-        };
-    }
+    // collection is na interface even more generic than list
+    public List<Seat> seats = new ArrayList<>();
+    // the arraylist could be any collection (linkedlist, hashset) and it would still work
 
     public Theatre(String theatreName, int numRows, int seatsPerRow) {
         this.theatreName = theatreName;
 
-        // loops through rows from A to last row letter
         int lastRow = 'A' + (numRows - 1);
         for (char row = 'A'; row <= lastRow; row++) {
-
-            // loops through each "column" (seat) on this current row
             for (int seatNum = 1; seatNum <= seatsPerRow; seatNum++) {
-
-                // String.format formats seatNum with leading zero (01, 02, 03, ...)
-                String formattedSeatNumber = row + String.format("%02d", seatNum);
-                double seatPrice = getSeatPrice(row, seatNum);
-
-                Seat seat = new Seat(formattedSeatNumber, seatPrice);
+                Seat seat = new Seat(row + String.format("%02d", seatNum));
                 seats.add(seat);
             }
-        }
-    }
-
-    private static double getSeatPrice(char row, int seatNum) {
-        if ((row < 'D') && (seatNum >= 4) && (seatNum <= 9)) {
-            return 14.00;
-
-        } else if ((row > 'F') || (seatNum < 4) || (seatNum > 9)) {
-            return 7.00;
-
-        } else {
-            return 12.00;
         }
     }
 
@@ -58,61 +22,57 @@ public class Theatre {
         return theatreName;
     }
 
-    public boolean reserveSeat(String seatNumber) {
-        // does a binary search to find the seatNumber (much more efficient than normal for loop)
-        // this only works because Seat implements Comparable (so the search knows how to compare seats)
-        // and because 'seats' ArrayList is already sorted in ascending order (otherwise it would need to be sorted first)
-        Seat requestedSeat = new Seat(seatNumber, 0);
-        int foundSeat = Collections.binarySearch(seats, requestedSeat, null);
+    // inefficient version
+    public boolean inefficientReserveSeat(String seatNumber) {
+        Seat requestedSeat = null;
 
-        // if index was found, return it reserved. if not, return false
-        if (foundSeat >= 0) {
-            return seats.get(foundSeat).reserve();
-        } else {
+        for (Seat seat : seats) {
+            System.out.print("."); // just to see the number of sets it went through to find
+            if (seat.getSeatNumber().equals(seatNumber)) {
+                requestedSeat = seat;
+                break;
+            }
+        }
+
+        if (requestedSeat == null) {
             System.out.println("There is no seat " + seatNumber);
             return false;
         }
 
-        // old/inefficient method of finding and reserving a seat below (brute force)
-//        // loop through seats
-//        for (Seat seat : seats) {
-//
-//            // print a dot (so we can know how many seats it needed to pass through to find the selected seat
-//            System.out.print(".");
-//
-//            // seat was found, so exit for loop
-//            if (seat.getSeatNumber().equals(seatNumber)) {
-//                requestedSeat = seat;
-//                break;
-//            }
-//        }
-//
-//        if (requestedSeat == null) {
-//            System.out.println("There is no seat " + seatNumber);
-//            return false;
-//        }
-//
-//        return requestedSeat.reserve();
+        return requestedSeat.reserve();
     }
 
-    // for testing
-    public Collection<Seat> getSeats() {
-        return seats;
+    // efficient version, using binary search
+    public boolean reserveSeat(String seatNumber) {
+        // binary search returns the index of the found element
+        Seat requestedSeat = new Seat(seatNumber);
+        int foundSeat = Collections.binarySearch(seats, requestedSeat, null);
+
+        if (foundSeat >= 0) {
+            return seats.get(foundSeat).reserve();
+        } else {
+            System.out.println("There is not seat " + seatNumber);
+            return false;
+        }
     }
 
-    // public only for testing purposes (in a real program would be private)
+    // for testing purposes
+    public void getSeats() {
+        for (Seat seat : seats) {
+            System.out.println(seat.getSeatNumber());
+        }
+    }
+
     public class Seat implements Comparable<Seat> {
-        private final String seatNumber;
-        private double price;
+        public final String seatNumber;
         private boolean reserved = false;
 
-        public Seat(String seatNumber, double price) {
+        public Seat(String seatNumber) {
             this.seatNumber = seatNumber;
-            this.price = price;
         }
 
-        // this is overriden, so the collection knows how to compare seats and order them properly
-        // to make locating a seat easier (since elements will be "indexed")
+        // method of the Comparable interface
+        // now we can compare seats against each other!
         @Override
         public int compareTo(Seat seat) {
             return this.seatNumber.compareToIgnoreCase(seat.getSeatNumber());
@@ -124,6 +84,7 @@ public class Theatre {
                 System.out.println("Seat " + seatNumber + " reserved");
                 return true;
             } else {
+                System.out.println("Seat " + seatNumber + " is already reserved, no action taken");
                 return false;
             }
         }
@@ -131,19 +92,16 @@ public class Theatre {
         public boolean cancel() {
             if (this.reserved) {
                 this.reserved = false;
-                System.out.println("Reservation of seat " + seatNumber + " canceled");
+                System.out.println("Reservation of seat " + seatNumber + " cancelled");
                 return true;
             } else {
+                System.out.println("Seat " + seatNumber + " is not reserved, operation aborted");
                 return false;
             }
         }
 
         public String getSeatNumber() {
             return seatNumber;
-        }
-
-        public double getPrice() {
-            return price;
         }
     }
 }
