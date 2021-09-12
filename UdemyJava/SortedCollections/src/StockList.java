@@ -1,12 +1,13 @@
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class StockList {
     private final Map<String, StockItem> list;
 
     public StockList() {
-        this.list = new HashMap<>();
+        this.list = new LinkedHashMap<>();
     }
 
     public int addStock(StockItem item) {
@@ -42,7 +43,20 @@ public class StockList {
         return list.get(key);
     }
 
-    public Map<String, StockItem> getItems() {
+
+    // issue of Items(): the list is unmodifiable, but the objects inside it can be modified
+    // solution: PriceList(), which builds a map of string and double and return to user
+    // (so the user doesn't have access to the inner objects, just to its data)
+    public Map<String, Double> PriceList() {
+        Map<String, Double> prices = new LinkedHashMap<>();
+
+        for (Map.Entry<String, StockItem> item : list.entrySet()) {
+            prices.put(item.getKey(), item.getValue().getPrice());
+        }
+
+        return Collections.unmodifiableMap(prices);
+    }
+    public Map<String, StockItem> Items() {
         return Collections.unmodifiableMap(list);
     }
 
@@ -56,10 +70,10 @@ public class StockList {
             double itemValue = stockItem.getPrice() * stockItem.quantityInStock();
 
             s = s + stockItem + ". There are " + stockItem.quantityInStock() + " in stock. Value of items: ";
-            s = s + itemValue + "\n";
+            s = s + String.format("%.2f", itemValue) + "\n";
             totalCost += itemValue;
         }
 
-        return s + "Total stock value " + totalCost;
+        return s + "Total stock value " + String.format("%.2f", totalCost);
     }
 }
