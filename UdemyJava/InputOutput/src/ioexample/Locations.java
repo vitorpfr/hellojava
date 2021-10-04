@@ -71,7 +71,7 @@ public class Locations implements Map<Integer, Location> {
 //            e.printStackTrace();
 //        }
 
-        // more modern version with bufferedreader (preferred method to minimize disk access)
+        // more modern version with bufferedreader (preferred method to minimize disk access, because it buffers reads in memory)
         try (var reader = new BufferedReader(new FileReader("locations_big.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {

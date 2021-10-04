@@ -13,7 +13,7 @@ public class Locations implements Map<Integer, Location> {
         try (var locFile = new ObjectInputStream(new BufferedInputStream(new FileInputStream("locations.dat")))) {
             boolean eof = false;
 
-            // the code below reads binary data stored as "primitive" types (int, string, etc)
+            // read option 1: the code below reads binary data stored as "primitive" types (int, string, etc)
 //            while (!eof) {
 //                try {
 //                    // read and insert location into memory
@@ -37,7 +37,7 @@ public class Locations implements Map<Integer, Location> {
 //                }
 //            }
 
-            // alternative: if data is stored with ObjectOutputStream, you can read entire objects at once!
+            // read option 2: if data is stored with ObjectOutputStream, you can read entire objects at once in the binary file (code becomes cleaner)
             while (!eof) {
                 try {
                     var location = (Location) locFile.readObject();
@@ -49,7 +49,7 @@ public class Locations implements Map<Integer, Location> {
                 }
             }
 
-            // invalid class exception will happen when serialversionUID is not provided, so classes uid do not match (deserialized and actual class)
+        // invalid class exception will happen when serialversionUID is not provided, so classes uid do not match when reading binary data (deserialized class and assigned class)
         } catch (InvalidClassException e) {
             System.out.println("InvalidClassException " + e.getMessage());
         } catch (IOException e) {
@@ -91,7 +91,7 @@ public class Locations implements Map<Integer, Location> {
     }
 
     public static void main(String[] args) throws IOException {
-//        // writes binary data to location.dat
+//        // write option 1: writes binary data to location.dat
 //        // important when writing binary data: have logging available of what's being written
 //        try (DataOutputStream locFile = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
 //            // for each location, add to file
@@ -113,7 +113,7 @@ public class Locations implements Map<Integer, Location> {
 //            }
 //        }
 
-        // writes data as an object output (writing entire objects as binary, instead of object primitive fields as binary)
+        // write option 2: writes data to locations.dat as an object output (writing entire objects as binary, instead of object primitive fields as binary)
         // code is much more simple because it writes entire object at once
         try (var locFile = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
             for (Location location : locations.values()) {

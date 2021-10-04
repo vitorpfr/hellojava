@@ -3,16 +3,17 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-// when storing/reading binary data to a file, we can either store primitive by primitive and re-construct object, or we can store objects itself
+// when storing/reading binary data to a file, we can either store primitive by primitive and re-instantiate objects one per time, or we can store objects itself and read them
 // to store objects, their class must implement Serializable
 // furthermore, all their fields must be from types/classes that implement Serializable, and the class itself needs to have a private long serialVersionUID
-// this serialversion is used to check if the stored object class matches the class which it is being assigned to
+// this serialversion is used to check if the stored object class matches the class which it is being assigned to when it is read
 public class Location implements Serializable {
     private final int locationID;
     private final String description;
     private final Map<String, Integer> exits;
 
     // read explanation above!
+    // if this line is commented, reading objects from binary files will throw exception
     private long serialVersionUID = 1L;
 
     // to make the location immutable, ideally the exits should be received by the constructor and the function
