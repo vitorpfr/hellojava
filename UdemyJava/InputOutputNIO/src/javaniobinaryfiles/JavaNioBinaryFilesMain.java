@@ -1,5 +1,6 @@
 package javaniobinaryfiles;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -81,25 +82,85 @@ public class JavaNioBinaryFilesMain {
             System.out.println(intBuffer.getInt(0)); // absolute read: this works because we specified the index
             System.out.println(intBuffer.getInt()); // relative read: this also works because getInt(0) does not move buffer position
 
-            System.out.println("------------------------------------------");
-            System.out.println("WRITE/READ DATA SEQUENTIALLY IN A SINGLE BUFFER");
-
-            // 5: create a single big buffer to write both string and ints (code becomes cleaner)
-            ByteBuffer bigBuffer = ByteBuffer.allocate(100);
-            outputBytes = "Hello world!".getBytes(StandardCharsets.UTF_8);
-            bigBuffer.put(outputBytes);
-            buffer.putInt(245);
-            buffer.putInt(-98765);
-            byte[] outputBytes2 = "Nice to meet you".getBytes(StandardCharsets.UTF_8);
-            buffer.put(outputBytes2);
-            buffer.putInt(1000);
-            buffer.flip();
-            binChannel.write(buffer);
-
             // closing because we opened without 'try with resources'
             channel.close();
             ra.close();
             raf.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("------------------------------------------");
+        System.out.println("WRITE/READ DATA SEQUENTIALLY IN A SINGLE BUFFER");
+
+        try (FileOutputStream binFile = new FileOutputStream("data.dat");
+             FileChannel binChannel = binFile.getChannel()) {
+
+            // 5: create a single big buffer to write both string and ints (code becomes cleaner)
+            ByteBuffer bigBuffer = ByteBuffer.allocate(100);
+            byte[] outputBytes = "Hello world!".getBytes(StandardCharsets.UTF_8);
+            byte[] outputBytes2 = "Nice to meet you".getBytes(StandardCharsets.UTF_8);
+
+            // chained version of put (possible because .put returns the buffer)
+//            bigBuffer.put(outputBytes).putInt(245).putInt(-98765).put(outputBytes2).putInt(1000);
+//            bigBuffer.flip();
+//            binChannel.write(bigBuffer);
+
+//            // unchained version of put (normal)
+//            bigBuffer.put(outputBytes);
+//            bigBuffer.putInt(245);
+//            bigBuffer.putInt(-98765);
+//            bigBuffer.put(outputBytes2);
+//            bigBuffer.putInt(1000);
+//            bigBuffer.flip();
+//            binChannel.write(bigBuffer);
+
+            // unchained version of put (modified to keep track of start position of each int)
+            bigBuffer.put(outputBytes);
+            long int1Pos = outputBytes.length;
+            bigBuffer.putInt(245);
+            long int2Pos = int1Pos + Integer.BYTES;
+            bigBuffer.putInt(-98765);
+            bigBuffer.put(outputBytes2);
+            long int3Pos = int2Pos + Integer.BYTES + outputBytes2.length;
+            bigBuffer.putInt(1000);
+            bigBuffer.flip();
+
+            binChannel.write(bigBuffer);
+
+            // reading all file contents in one shot using a new big buffer
+            RandomAccessFile ra2 = new RandomAccessFile("data.dat", "rwd");
+            FileChannel channel2 = ra2.getChannel();
+            ByteBuffer readBuffer2 = ByteBuffer.allocate(100);
+            channel2.read(readBuffer2);
+            readBuffer2.flip(); // switching from get the content from file to buffer, to actually read it (reset pointer)
+            byte[] inputString = new byte[outputBytes.length];
+            readBuffer2.get(inputString);
+            System.out.println("inputString = " + new String(inputString));
+            System.out.println("int1 = " + readBuffer2.getInt());
+            System.out.println("int2 = " + readBuffer2.getInt());
+            byte[] inputString2 = new byte[outputBytes2.length];
+            readBuffer2.get(inputString2);
+            System.out.println("inputString2 = " + new String(inputString2));
+            System.out.println("int3 = " + readBuffer2.getInt());
+
+
+            // copy data from file a to file b
+            // file a
+            RandomAccessFile file = new RandomAccessFile("data.dat", "rw");
+            FileChannel channel = file.getChannel();
+            // file b
+            RandomAccessFile copyFile = new RandomAccessFile("datacopy.dat", "rw");
+            FileChannel copyChannel = copyFile.getChannel();
+//            channel.position(0); // not needed because it is already on position zero
+//            long numTransferred = copyChannel.transferFrom(channel, 0, channel.size()); // specify number of bytes to copy: from 0 to channel size
+            long numTransferred = channel.transferTo(0, channel.size(), copyChannel); // another option
+            System.out.println("Num transferred = " + numTransferred);
+
+            file.close();
+            channel.close();
+            copyFile.close();
+            copyChannel.close();
 
         } catch (IOException e) {
             e.printStackTrace();

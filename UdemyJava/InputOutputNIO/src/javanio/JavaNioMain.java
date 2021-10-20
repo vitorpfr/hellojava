@@ -10,7 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
 
-// summary of java.io vs java.nio
+// summary of java.io vs java.nio for text data (UTF-8)
 // for small files that the content can fit in memory, use nio with .readAllLines
 // for large files where you need to read one line at a time, use java.io (better performance)
 // for multi-threaded applications (that act on files on multiple threads), use java.nio (since it deals with it)
