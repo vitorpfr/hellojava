@@ -1,7 +1,5 @@
 package bankaccountchallenge;
 
-import java.util.concurrent.locks.ReentrantLock;
-
 public class Challenge1 {
     // Challenge 1: Create and start two threads that use the same BankAccount instance and an initial balance of $1000.
     // One will deposit $300, and then withdraw $50.
