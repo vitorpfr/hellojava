@@ -1,5 +1,6 @@
 package challenge;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegexChallengeMain {
@@ -49,6 +50,84 @@ public class RegexChallengeMain {
         String challenge7 = "abcd.135";
         String challenge7Regex = "^[A-Za-z]+\\.\\d+$";
         System.out.println(challenge7.matches(challenge7Regex));
+
+        // Challenge 8: Modify the regular expression in challenge 7 to use a group, so that we can print all the
+        // digits that occur in a string that contains multiple occurrences of the pattern. Write all the code required
+        // to accomplish this (create a pattern, matcher, etc).
+        String challenge8 = "abcd.135uvqz.7tzik.999";
+
+        // this regex will be narrow to match a specific group (as opposed to being broad to match the whole string)
+        String challenge8Regex = "\\.(\\d+)[A-Za-z]*"; // my attempt
+        String challenge8RegexSolution = "[A-Za-z]+\\.(\\d+)"; // solution from lesson
+        // explanation: dot (\\.), followed by 1 or more numbers (group), followed by zero or more letters
+
+        Pattern challenge8Pattern = Pattern.compile(challenge8Regex);
+        Matcher challenge8Matcher = challenge8Pattern.matcher(challenge8);
+
+        while (challenge8Matcher.find()) {
+            System.out.println("Occurrence: " + challenge8Matcher.group(1));
+        } // prints 135, then 7, then 999
+
+        // Challenge 9: Let's suppose we're reading strings that match the patterns we used in challenges 7 and 8
+        // from a file. Tabs are used to separate the matches, with one exception. The last match is followed by a newline.
+        // Our revised challenge 8 string would look like this:
+        System.out.println("----- Challenge 9 ------");
+
+        String challenge9 = "abcd.135\tuqvz.7\ttzik.999\n";
+        String challenge9Regex = "\\.(\\d+)[\t|\n]"; // my attempt (not perfect, but it's honest work)
+        String challenge9RegexSolution = "[A-Za-z]+\\.(\\d+)\\s"; // solution (uses \\s instead of specifying [\t|\n]
+
+        var challenge9Matcher = Pattern.compile(challenge9Regex).matcher(challenge9);
+        while (challenge9Matcher.find()) {
+            System.out.println("Occurrence: " + challenge9Matcher.group(1));
+        } // prints 135, then 7, then 999
+
+        // Challenge 10: Instead of printing the numbers themselves, print out their start and end indices. Make those
+        // indices inclusive. Start index for 135 should be 5, and end index should be 7.
+
+        // start and end methods specify the group of the pattern (1 in this case)
+        // end is subtracted 1 because we want indices inclusive
+        System.out.println("----- Challenge 10 ------");
+        challenge9Matcher.reset();
+        while (challenge9Matcher.find()) {
+            System.out.println("Occurrence: from " + challenge9Matcher.start(1) + " to " + (challenge9Matcher.end(1) - 1));
+        }
+
+        // Challenge 11: Suppose we have the following string containing points on a graph within curly braces.
+        // Extract what's in the curly braces.
+        System.out.println("----- Challenge 11 ------");
+
+        String challenge11 = "{0, 2}, {0, 5}, {1, 3}, {2, 4}";
+        String challenge11Regex = "\\{(\\d+, \\d+)\\}"; // my attempt (more specific)
+        String challenge11RegexSolution = "\\{(.+?)\\}"; // solution (more generic, gets any character pattern inside the curly braces, lazily)
+        Pattern challenge11Pattern = Pattern.compile(challenge11Regex);
+        Matcher challenge11Matcher = challenge11Pattern.matcher(challenge11);
+
+        while (challenge11Matcher.find()) {
+            System.out.println("Occurrence: " + challenge11Matcher.group(1));
+        }
+
+        // Challenge 12: Write a regular expression that will match a 5-digit US zip code. Use "11111" as your test string.
+        System.out.println("----- Challenge 12 ------");
+        String challenge12 = "11111";
+        String challenge12Regex = "^\\d{5}$"; // start, digit 5 times, end
+        System.out.println(challenge12.matches(challenge12Regex)); // true
+
+        // Challenge 13: US zip codes can be followed by a dash and another four numbers. Write a regular expression
+        // that will match those zip codes. Use "11111-1111" as your test string.
+        System.out.println("----- Challenge 13 ------");
+        String challenge13 = "11111-1111";
+        String challenge13Regex = "^\\d{5}-\\d{4}$"; // start, 5 digits, -, 4 digits, end
+        System.out.println(challenge13.matches(challenge13Regex)); // true
+
+        // Challenge 14: Write a regex that matches both US zip code formats
+        System.out.println("----- Challenge 14 ------");
+        // surrounded the optional part within a group and inserted a ? in the end, which means there can be 0 or more occurrences of group
+        String challenge14Regex = "^\\d{5}(-\\d{4})?$"; // start, 5 digits, then maybe - and 4 digits, end
+        System.out.println(challenge12.matches(challenge14Regex)); // true
+        System.out.println(challenge13.matches(challenge14Regex)); // true
+
+
 
 
     }
