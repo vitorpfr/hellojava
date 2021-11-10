@@ -28,4 +28,13 @@ public class Album {
     public void setArtistId(int artistId) {
         this.artistId = artistId;
     }
+
+    @Override
+    public String toString() {
+        return "Album{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", artistId=" + artistId +
+                '}';
+    }
 }
