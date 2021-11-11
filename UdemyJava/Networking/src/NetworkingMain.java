@@ -39,4 +39,8 @@ public class NetworkingMain {
     // example: http://www.google.com.br/
     // http is the 'scheme, (other examples: http, file, ftp)
     // this is a 'url', or a 'http uri'
+
+
+    // most of the developer use third-party libraries because they are much easier to use than java.net
+    // examples: Jetty, Apache HTTPClient
 }
