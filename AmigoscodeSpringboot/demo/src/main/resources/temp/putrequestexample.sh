@@ -1,0 +1,1 @@
+curl -X PUT 'http://localhost:8080/api/v1/student/1?name=Maria&email=maria@gmail.com' -vvv
