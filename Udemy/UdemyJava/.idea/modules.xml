@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AbstractClasses/AbstractClasses.iml" filepath="$PROJECT_DIR$/AbstractClasses/AbstractClasses.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AccessModifiers/AccessModifiers.iml" filepath="$PROJECT_DIR$/AccessModifiers/AccessModifiers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ArrayListsAndVectors/ArrayListsAndVectors.iml" filepath="$PROJECT_DIR$/ArrayListsAndVectors/ArrayListsAndVectors.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Arrays/Arrays.iml" filepath="$PROJECT_DIR$/Arrays/Arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AutoboxingAndUnboxing/AutoboxingAndUnboxing.iml" filepath="$PROJECT_DIR$/AutoboxingAndUnboxing/AutoboxingAndUnboxing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BitwiseOperators/BitwiseOperators.iml" filepath="$PROJECT_DIR$/BitwiseOperators/BitwiseOperators.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ByteShortIntLong/ByteShortIntLong.iml" filepath="$PROJECT_DIR$/ByteShortIntLong/ByteShortIntLong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CharAndBoolean/CharAndBoolean.iml" filepath="$PROJECT_DIR$/CharAndBoolean/CharAndBoolean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Classes/Classes.iml" filepath="$PROJECT_DIR$/Classes/Classes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Collections/Collections.iml" filepath="$PROJECT_DIR$/Collections/Collections.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Composition/Composition.iml" filepath="$PROJECT_DIR$/Composition/Composition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConcurrencyAndThreads/ConcurrencyAndThreads.iml" filepath="$PROJECT_DIR$/ConcurrencyAndThreads/ConcurrencyAndThreads.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Databases/Databases.iml" filepath="$PROJECT_DIR$/Databases/Databases.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DebuggerDemo/DebuggerDemo.iml" filepath="$PROJECT_DIR$/DebuggerDemo/DebuggerDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Encapsulation/Encapsulation.iml" filepath="$PROJECT_DIR$/Encapsulation/Encapsulation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Enum/Enum.iml" filepath="$PROJECT_DIR$/Enum/Enum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exceptions/Exceptions.iml" filepath="$PROJECT_DIR$/Exceptions/Exceptions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Final/Final.iml" filepath="$PROJECT_DIR$/Final/Final.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FloatAndDouble/FloatAndDouble.iml" filepath="$PROJECT_DIR$/FloatAndDouble/FloatAndDouble.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ForLoop/ForLoop.iml" filepath="$PROJECT_DIR$/ForLoop/ForLoop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Generics/Generics.iml" filepath="$PROJECT_DIR$/Generics/Generics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HelloWorld/HelloWorld.iml" filepath="$PROJECT_DIR$/HelloWorld/HelloWorld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IORandomAccessAdventure/IORandomAccessAdventure.iml" filepath="$PROJECT_DIR$/IORandomAccessAdventure/IORandomAccessAdventure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IfElse/IfElse.iml" filepath="$PROJECT_DIR$/IfElse/IfElse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Inheritance/Inheritance.iml" filepath="$PROJECT_DIR$/Inheritance/Inheritance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InnerClasses/InnerClasses.iml" filepath="$PROJECT_DIR$/InnerClasses/InnerClasses.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InputOutput/InputOutput.iml" filepath="$PROJECT_DIR$/InputOutput/InputOutput.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InputOutputNIO/InputOutputNIO.iml" filepath="$PROJECT_DIR$/InputOutputNIO/InputOutputNIO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Interfaces/Interfaces.iml" filepath="$PROJECT_DIR$/Interfaces/Interfaces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KeywordsAndExpressions/KeywordsAndExpressions.iml" filepath="$PROJECT_DIR$/KeywordsAndExpressions/KeywordsAndExpressions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lambdas/Lambdas.iml" filepath="$PROJECT_DIR$/Lambdas/Lambdas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LinkedLists/LinkedLists.iml" filepath="$PROJECT_DIR$/LinkedLists/LinkedLists.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Methods/Methods.iml" filepath="$PROJECT_DIR$/Methods/Methods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Networking/Networking.iml" filepath="$PROJECT_DIR$/Networking/Networking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Operators/Operators.iml" filepath="$PROJECT_DIR$/Operators/Operators.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Packages/Packages.iml" filepath="$PROJECT_DIR$/Packages/Packages.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PackagesTest/PackagesTest.iml" filepath="$PROJECT_DIR$/PackagesTest/PackagesTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ParsingValuesFromString/ParsingValuesFromString.iml" filepath="$PROJECT_DIR$/ParsingValuesFromString/ParsingValuesFromString.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Paths/Paths.iml" filepath="$PROJECT_DIR$/Paths/Paths.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Polymorphism/Polymorphism.iml" filepath="$PROJECT_DIR$/Polymorphism/Polymorphism.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ReadingUserInput/ReadingUserInput.iml" filepath="$PROJECT_DIR$/ReadingUserInput/ReadingUserInput.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ReferenceVsValueTypes/ReferenceVsValueTypes.iml" filepath="$PROJECT_DIR$/ReferenceVsValueTypes/ReferenceVsValueTypes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Regex/Regex.iml" filepath="$PROJECT_DIR$/Regex/Regex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SQLite/SQLite.iml" filepath="$PROJECT_DIR$/SQLite/SQLite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Scope/Scope.iml" filepath="$PROJECT_DIR$/Scope/Scope.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SetAndHashSet/SetAndHashSet.iml" filepath="$PROJECT_DIR$/SetAndHashSet/SetAndHashSet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SortedCollections/SortedCollections.iml" filepath="$PROJECT_DIR$/SortedCollections/SortedCollections.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StatementsWhitespaceAndIndentation/StatementsWhitespaceAndIndentation.iml" filepath="$PROJECT_DIR$/StatementsWhitespaceAndIndentation/StatementsWhitespaceAndIndentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Static/Static.iml" filepath="$PROJECT_DIR$/Static/Static.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Streams/Streams.iml" filepath="$PROJECT_DIR$/Streams/Streams.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Strings/Strings.iml" filepath="$PROJECT_DIR$/Strings/Strings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Switch/Switch.iml" filepath="$PROJECT_DIR$/Switch/Switch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestUnit/TestUnit.iml" filepath="$PROJECT_DIR$/TestUnit/TestUnit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThreadDeadlock/ThreadDeadlock.iml" filepath="$PROJECT_DIR$/ThreadDeadlock/ThreadDeadlock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThreadStarvation/ThreadStarvation.iml" filepath="$PROJECT_DIR$/ThreadStarvation/ThreadStarvation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/UdemyJava.iml" filepath="$PROJECT_DIR$/.idea/UdemyJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WhileLoop/WhileLoop.iml" filepath="$PROJECT_DIR$/WhileLoop/WhileLoop.iml" />
+    </modules>
+  </component>
+</project>
