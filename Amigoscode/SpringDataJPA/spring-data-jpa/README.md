@@ -1,5 +1,11 @@
 # spring-data-jpa-course
 
+Warning: This repository is owned by Amigoscode (https://github.com/amigoscode/spring-data-jpa-course) and have comments done by myself for studying purposes. 
+
+All data below comes from the original repo.
+
+Please refer to the original repository and course: https://www.youtube.com/watch?v=8SGI_XS5OPw&t=455
+
 ![2](https://user-images.githubusercontent.com/40702606/103156831-dfce9b00-47a4-11eb-9551-af8ffee11bd0.png)
 
 ## Course Description
