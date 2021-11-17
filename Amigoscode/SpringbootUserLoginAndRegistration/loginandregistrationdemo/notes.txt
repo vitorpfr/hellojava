@@ -1,0 +1,5 @@
+Source: https://www.youtube.com/watch?v=QwQuro7ekvc
+
+All the project was coded along the video below, which is a Amigoscode tutorial.
+
+Project initialized using Spring initializr: https://start.spring.io/
