@@ -1,6 +1,6 @@
 # hellojava
 
-This is a mono-repo containing multiple projects used by me (Vitor Freitas) for the study of Java and related frameworks. 
+This is a mono-repo containing multiple projects used by me (Vitor Freitas) for learning and studying Java and related frameworks. 
 
 ![Java](http://s2.glbimg.com/DyDQQTZSF1oEiO8kawMIxP72KzQ=/290x417/s.glbimg.com/jo/g1/f/original/2011/08/22/22-java-300.jpg)
 
