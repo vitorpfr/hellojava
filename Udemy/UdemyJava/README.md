@@ -1,13 +1,5 @@
 # Overview
 
-This is a repository that has code-along classes and challenges done for the Java Developer's Udemy course:
+This is a repository that has code-along classes and challenges done for the Java Developer's Udemy course. All examples were coded along watching the videos, with comments and some few additions regarding new functionalities. Each module represents a topic in the course.
 
 https://www.udemy.com/course/java-the-complete-java-developer-course/
-
-# Relevant projects/challenges
-- Mobile phone challenge: ArrayLists/mobilephonechallenge
-- Banking challenge: AutoboxingAndUnboxing/bankingchallenge
-- Playlist challenge: LinkedLists/playlistchallenge
-- Playlist challenge revisited (with inner classes): InnerClasses/playlistchallengerevisited
-- LinkedList playground (my implementation of a linked list): AbstractClasses/linkedlistplayground
-- SearchTree challenge: AbstractClasses/abstractclasseschallenge
