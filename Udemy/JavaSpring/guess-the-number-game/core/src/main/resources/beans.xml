@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="numberGenerator" class="org.example.NumberGeneratorImpl"/>
+    <bean id="game" class="org.example.GameImpl">
+<!--        this is only needed if using constructor-based dependency injection-->
+<!--        "ref" is a reference to the bean to be injected-->
+<!--        <constructor-arg ref="numberGenerator"/>-->
+
+<!--        this is only needed if using setter-based dependency injection-->
+<!--        "ref" is a reference to the bean to be injected-->
+        <property name="numberGenerator" ref="numberGenerator"/>
+    </bean>
+
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+
+</beans>
