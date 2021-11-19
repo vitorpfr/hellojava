@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    this tag automatically loads some beans which handle annotation processing-->
+<!--    which means we now can use annotations in our Java files and they will be mapped by the Spring container-->
+<!--    <context:annotation-config/>-->
+
+<!--    this implicitly enables the behavior of annotation-config above, and also component annotation scanning-->
+    <context:component-scan base-package="org.example"/>
+
+<!--    here we used to declare our two beans: "NumberGeneratorImpl" and "GameImpl"-->
+<!--    those bean declarations are not necessary because we will be annotating them (and they will be mapped with component-scan above-->
+<!--    <bean id="numberGenerator" class="org.example.NumberGeneratorImpl"/>-->
+<!--    <bean id="game" class="org.example.GameImpl">-->
+<!--&lt;!&ndash;        this is only needed if using constructor-based dependency injection&ndash;&gt;-->
+<!--&lt;!&ndash;        "ref" is a reference to the bean to be injected&ndash;&gt;-->
+<!--&lt;!&ndash;        <constructor-arg ref="numberGenerator"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        this is only needed if using setter-based dependency injection&ndash;&gt;-->
+<!--&lt;!&ndash;        "ref" is a reference to the bean to be injected&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="numberGenerator" ref="numberGenerator"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        both things above are not needed if you are using autowiring&ndash;&gt;-->
+<!--    </bean>-->
+
+</beans>

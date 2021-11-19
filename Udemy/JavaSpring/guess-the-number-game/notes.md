@@ -32,3 +32,40 @@
     - Add a bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor
     - Add the annotation dependency
     - Add the @PostConstruct annotation to the method to be called on initialization
+
+
+### Autowired annotation
+
+- How to use Autowired (and other) annotations:
+  - Add "xmlns:context="http://www.springframework.org/schema/context" in the beans config file
+  - Add two schemaLocation (see beans.xml file)
+  - Remove any properties or constructor-arg from the beans we want to use autowired inside
+  - Add the @Autowired annotation, inside the class, in the component you want to inject
+- After doing that, Spring will map and process all annotations in your code (even the @PostConstruct and @PreDestroy we've inserted before) and do stuff with what was annotated according to the annotation
+
+- The @Autowired annotation can be used with construction, setter and fields (here we are using in a field)
+- You could add this annotation to parameters of a constructor or setter method
+- It is recommended by the Spring team (and best practice) to use constructor injection to guarantee immutable components
+
+### Beans as components
+- Spring provides several stereotype annotations such as @Component, @Service and @Controller
+- Stereotype annotations are markers for any class that fulfills a role within an application. This cuts down greatly on the need to use Spring XML based configuration
+  - @Component is a generic stereotype for any Spring-managed component
+  - @Repository, @Service and @Controller are specializations of @Component for more specific use cases
+
+### Annotation configuration
+- We can have a class in our project that will represent the Spring configuration
+- With this, we can delete the beans.xml file
+- This config class needs to have the @Configuration annotation, which is also a component (candidate for component auto-scanning)
+- To re-enable component auto-scanning (which was configured in the xml), we also need to add the @ComponentScan(basePackages = "org.example") annotation to this config class
+
+- @ComponentScan and @Component annotations auto-finds and create the beans. Another option is to manually create the beans in the Config file with the @Bean annotation
+- @Bean is an annotation applied to methods. It indicates that the method returns a bean to be managed by the Spring container. The name of the bean is the same of the name of the method
+
+Why would we use @Bean methods to create beans, instead of the more practical component auto scanning?
+- Bean methods are useful when we need some additional configuration for a bean
+
+### Application events
+- You can make a component listen to an event and execute code when it receives. There are two ways:
+  - Class implements ApplicationListener<ContextRefreshedEvent> and overrides method onApplicationEvent
+  - A method with the annotation EventListener receives ContextRefreshedEvent event as a parameter
