@@ -1,0 +1,3 @@
+- To create a web project, we need to compile it as a .war instead of a .jar
+- To manage that, we need to add maven-war-plugin (to compile to .war), maven cargo plugin (to deploy tomcat container server in embedded mode) in the pom.xml
+- After setup and running the 'cargo:run' task, we can access the index page with http://localhost:8080/todo-list/index.html
