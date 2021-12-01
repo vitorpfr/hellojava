@@ -9,5 +9,4 @@ public interface TodoItemService {
     TodoItem getItem(int id);
     void updateItem(TodoItem toUpdate);
     TodoData getTodoData();
-
 }
