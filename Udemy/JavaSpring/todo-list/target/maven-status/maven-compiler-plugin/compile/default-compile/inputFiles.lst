@@ -1,2 +1,13 @@
-/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/config/WebConfig.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/service/TodoItemService.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/util/ViewNames.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/util/Mappings.java
 /Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/config/WebAppInitializer.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/service/TodoItemServiceImpl.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/model/TodoItem.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/model/TodoData.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/service/DemoService.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/util/AttributeNames.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/controller/TodoItemController.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/config/WebConfig.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/controller/DemoController.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/todo-list/src/main/java/org/example/service/DemoServiceImpl.java
