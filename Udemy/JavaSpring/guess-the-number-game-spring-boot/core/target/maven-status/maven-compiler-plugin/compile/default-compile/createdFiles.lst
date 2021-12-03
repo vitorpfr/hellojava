@@ -1,0 +1,11 @@
+org/example/config/AppConfig.class
+org/example/Game.class
+org/example/MessageGenerator.class
+org/example/NumberGeneratorImpl.class
+org/example/GameImpl.class
+org/example/qualifier/GuessCount.class
+org/example/config/GameConfig.class
+org/example/NumberGenerator.class
+org/example/qualifier/MinNumber.class
+org/example/qualifier/MaxNumber.class
+org/example/MessageGeneratorImpl.class

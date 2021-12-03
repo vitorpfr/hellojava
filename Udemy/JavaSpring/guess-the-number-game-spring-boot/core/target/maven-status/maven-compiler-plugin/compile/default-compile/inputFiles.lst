@@ -1,0 +1,11 @@
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/guess-the-number-game-spring-boot/core/src/main/java/org/example/config/AppConfig.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/guess-the-number-game-spring-boot/core/src/main/java/org/example/qualifier/MinNumber.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/guess-the-number-game-spring-boot/core/src/main/java/org/example/config/GameConfig.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/guess-the-number-game-spring-boot/core/src/main/java/org/example/NumberGenerator.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/guess-the-number-game-spring-boot/core/src/main/java/org/example/MessageGenerator.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/guess-the-number-game-spring-boot/core/src/main/java/org/example/Game.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/guess-the-number-game-spring-boot/core/src/main/java/org/example/NumberGeneratorImpl.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/guess-the-number-game-spring-boot/core/src/main/java/org/example/qualifier/GuessCount.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/guess-the-number-game-spring-boot/core/src/main/java/org/example/MessageGeneratorImpl.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/guess-the-number-game-spring-boot/core/src/main/java/org/example/qualifier/MaxNumber.java
+/Users/vitorfreitas/dev/personal/hellojava/Udemy/JavaSpring/guess-the-number-game-spring-boot/core/src/main/java/org/example/GameImpl.java
