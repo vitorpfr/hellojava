@@ -3,3 +3,12 @@ UdemyJava/.idea/*
 JavaChallenges/out/*
 JavaChallenges/.idea/*
 .DS_Store
+.gradle
+
+*/.gradle
+*/build/*
+*/.idea/*
+
+.gradle
+build
+.idea.idea
