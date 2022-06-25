@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes('Main-Class': 'WordCount')
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    // https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-core
+    implementation group: 'org.apache.hadoop', name: 'hadoop-core', version: '1.2.1'
+    // https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common
+    implementation group: 'org.apache.hadoop', name: 'hadoop-common', version: '3.3.3'
+    // https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-mapreduce-client-core
+    implementation group: 'org.apache.hadoop', name: 'hadoop-mapreduce-client-core', version: '3.3.3'
+
+
+}
+
+test {
+    useJUnitPlatform()
+}

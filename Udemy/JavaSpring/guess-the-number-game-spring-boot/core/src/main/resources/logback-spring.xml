@@ -4,5 +4,7 @@
 
     <logger name="org.example" level="DEBUG"/>
     <logger name="org.springframework" level="INFO"/>
+<!--    <logger name="org.thymeleaf" level="TRACE"/>-->
+    <logger name="org.thymeleaf" level="INFO"/>
 
 </configuration>

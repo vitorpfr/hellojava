@@ -14,5 +14,4 @@ public class Meeting {
                 .sorted((String[] x, String[] y) -> x[1].compareTo(y[1]) == 0 ? x[0].compareTo(y[0]) : x[1].compareTo(y[1]))
                 .map((String[] x) -> "(" + x[1] + ", " + x[0] + ")")
                 .collect(Collectors.joining(""));
-    }
 }
